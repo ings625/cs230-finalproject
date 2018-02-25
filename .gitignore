@@ -1,0 +1,5 @@
+/data
+/downloads
+/experiments/*/eval_summaries
+/experiments/*/train_summaries
+.env/*

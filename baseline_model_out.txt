@@ -1,0 +1,52 @@
+(.env) Scotts-MacBook-Pro:landmarks scottings$ python train.py --data_dir data --model_dir experiments/base_model
+Creating the datasets...
+Creating the model...
+Starting training for 10 epoch(s)
+2018-02-24 12:28:44.075297: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.2 AVX AVX2 FMA
+Epoch 1/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [22:48<00:00,  2.31it/s, loss=1.685]
+- Train metrics: accuracy: 0.445 ; loss: 2.356
+- Eval metrics: accuracy: 0.592 ; loss: 1.659
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-1
+Epoch 2/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [20:03<00:00,  2.62it/s, loss=1.311]
+- Train metrics: accuracy: 0.630 ; loss: 1.487
+- Eval metrics: accuracy: 0.631 ; loss: 1.464
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-2
+Epoch 3/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:44<00:00,  2.66it/s, loss=1.277]
+- Train metrics: accuracy: 0.698 ; loss: 1.190
+- Eval metrics: accuracy: 0.710 ; loss: 1.158
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-3
+Epoch 4/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:49<00:00,  2.65it/s, loss=0.986]
+- Train metrics: accuracy: 0.741 ; loss: 1.012
+- Eval metrics: accuracy: 0.719 ; loss: 1.121
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-4
+Epoch 5/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:41<00:00,  2.67it/s, loss=0.743]
+- Train metrics: accuracy: 0.768 ; loss: 0.892
+- Eval metrics: accuracy: 0.733 ; loss: 1.070
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-5
+Epoch 6/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:40<00:00,  2.67it/s, loss=0.506]
+- Train metrics: accuracy: 0.791 ; loss: 0.795
+- Eval metrics: accuracy: 0.715 ; loss: 1.163
+Epoch 7/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:36<00:00,  2.68it/s, loss=0.568]
+- Train metrics: accuracy: 0.809 ; loss: 0.716
+- Eval metrics: accuracy: 0.728 ; loss: 1.116
+Epoch 8/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:36<00:00,  2.68it/s, loss=0.439]
+- Train metrics: accuracy: 0.823 ; loss: 0.657
+- Eval metrics: accuracy: 0.742 ; loss: 1.068
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-8
+Epoch 9/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:48<00:00,  2.66it/s, loss=0.155]
+- Train metrics: accuracy: 0.837 ; loss: 0.604
+- Eval metrics: accuracy: 0.756 ; loss: 1.023
+- Found new best accuracy, saving in experiments/base_model/best_weights/after-epoch-9
+Epoch 10/10
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3156/3156 [19:29<00:00,  2.70it/s, loss=0.521]
+- Train metrics: accuracy: 0.847 ; loss: 0.558
+- Eval metrics: accuracy: 0.755 ; loss: 1.041
