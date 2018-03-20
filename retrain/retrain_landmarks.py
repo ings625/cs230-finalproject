@@ -1124,6 +1124,7 @@ def run_final_eval(sess, model_info, class_count, image_lists, jpeg_data_tensor,
 
   
   csvpath = os.path.join(FLAGS.saved_model_dir, "test_output_labels.csv") 
+  csvpath = "test_output_labels.csv"
   with open(csvpath, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(['filename', 'test_ground_truth', 'predictions'])  
