@@ -129,6 +129,8 @@ from tensorflow.python.framework import tensor_shape
 from tensorflow.python.platform import gfile
 from tensorflow.python.util import compat
 
+import csv
+
 
 FLAGS = None
 
@@ -1118,6 +1120,16 @@ def run_final_eval(sess, model_info, class_count, image_lists, jpeg_data_tensor,
       if predictions[i] != test_ground_truth[i]:
         tf.logging.info('%70s  %s' % (test_filename,
                                       list(image_lists.keys())[predictions[i]]))
+
+
+  
+  csvpath = os.path.join(FLAGS.model_dir, "test_output_labels.csv") 
+  with open(csvpath, 'wb') as f:
+    writer = csv.writer(f)
+    writer.writerow(['filename', 'test_ground_truth', 'predictions'])  
+
+    for i, test_filename in enumerate(test_filenames):
+      writer.writerow([test_filenames, test_ground_truth[i], predictions[i]])    
 
 
 def build_eval_session(model_info, class_count):
