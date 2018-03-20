@@ -349,7 +349,7 @@ label_mappings = {
 
 
 
-def create_image_lists(image_dir, testing_percentage, validation_percentage):
+def create_image_lists(image_dir, testing_percentage, validation_percentage, training_total_size):
   """Builds a list of training images from the file system.
 
   Analyzes the sub folders in the image directory, splits them into stable
@@ -390,6 +390,10 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
 
   # Labels will be between 0 and 5 included (6 classes in total)
   # train_labels = [int(f.split('/')[-1].split('_')[0]) for f in train_filenames]
+
+  train_filenames.sort()
+  random.shuffle(train_filenames)
+
   train_labels = [str(int(f.split('/')[-1].split('_')[0])) for f in train_filenames]
   train_labels_set = set(train_labels)
   # print(train_labels_set)
@@ -405,13 +409,19 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
   # print(train_labels_set)
   # test_labels = [label_mappings[t] for t in test_labels]
 
+  training_size = 0
+  if testing_total_size == -1:
+    training_size = len(train_labels)
+  else:
+    training_size = training_total_size
+
   result = {}
 
   for t in train_labels_set:
     training_images = []
     testing_images = []
     validation_images = []
-    for tr in range(len(train_labels)):
+    for tr in range(training_size):
       if train_labels[tr] == t:
         training_images.append(train_filenames[tr])
 
@@ -1348,7 +1358,7 @@ def main(_):
 
   # Look at the folder structure, and create lists of all the images.
   image_lists = create_image_lists(FLAGS.image_dir, FLAGS.testing_percentage,
-                                   FLAGS.validation_percentage)
+                                   FLAGS.validation_percentage, FLAGS.training_total_size)
   class_count = len(image_lists.keys())
   if class_count == 0:
     tf.logging.error('No valid folders of images found at ' + FLAGS.image_dir)
@@ -1696,5 +1706,10 @@ if __name__ == '__main__':
       type=str,
       default='/tmp/saved_models/1/',
       help='Where to save the exported graph.')
+  parser.add_argument(
+      '--training_total_size',
+      type=int,
+      default=-1,
+      help='How many training examples to use. Will sample randomly. -1 = all')
   FLAGS, unparsed = parser.parse_known_args()
   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
