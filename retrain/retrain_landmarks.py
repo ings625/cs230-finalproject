@@ -1124,12 +1124,12 @@ def run_final_eval(sess, model_info, class_count, image_lists, jpeg_data_tensor,
 
   
   csvpath = os.path.join(FLAGS.model_dir, "test_output_labels.csv") 
-  with open(csvpath, 'wb') as f:
+  with open(csvpath, 'w') as f:
     writer = csv.writer(f)
-    # writer.writerow(['filename', 'test_ground_truth', 'predictions'])  
+    writer.writerow(['filename', 'test_ground_truth', 'predictions'])  
 
     for i, test_filename in enumerate(test_filenames):
-      writer.writerow([test_filenames, test_ground_truth[i], predictions[i]])    
+      writer.writerow([test_filename, test_ground_truth[i], predictions[i]])    
 
 
 def build_eval_session(model_info, class_count):
