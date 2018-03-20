@@ -410,7 +410,7 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage, tra
   # test_labels = [label_mappings[t] for t in test_labels]
 
   training_size = 0
-  if testing_total_size == -1:
+  if training_total_size == -1:
     training_size = len(train_labels)
   else:
     training_size = training_total_size
